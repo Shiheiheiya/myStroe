@@ -16,4 +16,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductList() {
         return productDao.getProductList();
     }
+
+    @Override
+    public List<Product> getProduct(String pid) {
+        return productDao.getProduct(pid);
+    }
 }

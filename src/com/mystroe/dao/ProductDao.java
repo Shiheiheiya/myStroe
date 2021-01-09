@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 数据库dao层 - 商品数据
+ * 数据库dao层 - 商品列表数据
  */
 public class ProductDao{
     /**
@@ -32,6 +32,23 @@ public class ProductDao{
                     "p.shop_price as shopPrice , " +
                     "p.is_hot as isHot," +
                     "p.pimage from product p";
+            List<Product> productList = qr.query(sql, new BeanListHandler<>(Product.class));
+            return productList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+    }
+    public List<Product> getProduct(String pid){
+        try {
+            String sql = "select " +
+                    "p.pname , " +
+                    "p.pid , " +
+                    "p.market_price as marketPrice , " +
+                    "p.shop_price as shopPrice , " +
+                    "p.is_hot as isHot , " +
+                    "p.pimage from product p " +
+                    "where p.pid = " + pid;
             List<Product> productList = qr.query(sql, new BeanListHandler<>(Product.class));
             return productList;
         } catch (SQLException e) {
