@@ -1,4 +1,4 @@
-package com.mystroe.pojo;
+package com.mystore.web.pojo;
 
 import java.util.Date;
 

@@ -1,8 +1,8 @@
-package com.mystroe.controller;
+package com.mystore.web.controller;
 
-import com.mystroe.pojo.Product;
-import com.mystroe.service.ProductService;
-import com.mystroe.service.impl.ProductServiceImpl;
+import com.mystore.web.pojo.Product;
+import com.mystore.web.service.ProductService;
+import com.mystore.web.service.impl.ProductServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

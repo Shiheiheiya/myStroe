@@ -1,4 +1,4 @@
-package com.mystroe.util;
+package com.mystore.web.util;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 

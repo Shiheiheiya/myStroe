@@ -1,8 +1,8 @@
-package com.mystroe.service.impl;
+package com.mystore.web.service.impl;
 
-import com.mystroe.dao.ProductDao;
-import com.mystroe.pojo.Product;
-import com.mystroe.service.ProductService;
+import com.mystore.web.dao.ProductDao;
+import com.mystore.web.pojo.Product;
+import com.mystore.web.service.ProductService;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProduct(String pid) {
-        return productDao.getProduct(pid);
+    public Product getProductByPid(String pid) {
+        return productDao.getProductByPid(pid);
     }
 }

@@ -42,66 +42,87 @@ font {
 			<div class="col-md-8"
 				style="background: #fff; padding: 40px 80px; margin: 30px; border: 7px solid #ccc;">
 				<font>会员注册</font>USER REGISTER
-				<form class="form-horizontal" style="margin-top: 5px;">
+				<form class="form-horizontal" style="margin-top: 5px;" action="<%=request.getContextPath()%>/register" method="post">
 					<div class="form-group">
 						<label for="username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="username"
-								placeholder="请输入用户名">
+								placeholder="请输入用户名" name="username" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 						<div class="col-sm-6">
 							<input type="password" class="form-control" id="inputPassword3"
-								placeholder="请输入密码">
+								placeholder="请输入密码" name="password" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="confirmpwd" class="col-sm-2 control-label">确认密码</label>
 						<div class="col-sm-6">
 							<input type="password" class="form-control" id="confirmpwd"
-								placeholder="请输入确认密码">
+								placeholder="请输入确认密码" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 						<div class="col-sm-6">
 							<input type="email" class="form-control" id="inputEmail3"
-								placeholder="Email">
+								placeholder="Email" name="email">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="usercaption" class="col-sm-2 control-label">姓名</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="usercaption"
-								placeholder="请输入姓名">
+								placeholder="请输入昵称" name="name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usercaption" class="col-sm-2 control-label">手机号</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control"
+								   placeholder="请输入手机号" name="telephone">
 						</div>
 					</div>
 					<div class="form-group opt">
 						<label for="inlineRadio1" class="col-sm-2 control-label">性别</label>
 						<div class="col-sm-6">
-							<label class="radio-inline"> <input type="radio"
-								name="inlineRadioOptions" id="inlineRadio1" value="option1">
-								男
-							</label> <label class="radio-inline"> <input type="radio"
-								name="inlineRadioOptions" id="inlineRadio2" value="option2">
-								女
+							<label class="radio-inline">
+								<input type="radio" name="sex" id="inlineRadio1" value="1">男
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="sex" id="inlineRadio2" value="0">女
 							</label>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="date" class="col-sm-2 control-label">出生日期</label>
+
+					<div class="form-group opt">
+						<label for="inlineRadio1" class="col-sm-2 control-label">爱好</label>
 						<div class="col-sm-6">
-							<input type="date" class="form-control">
+							<label>
+								<input type="checkbox" name="hobby"  value="篮球"> 篮球&nbsp&nbsp
+							</label>
+							<label>
+								<input type="checkbox" name="hobby"  value="足球"> 足球&nbsp&nbsp
+							</label>
+							<label>
+								<input type="checkbox" name="hobby"  value="乒乓球"> 乒乓球&nbsp&nbsp
+							</label>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="date" class="col-sm-2 control-label">验证码</label>
+						<label class="col-sm-2 control-label">出生日期</label>
+						<div class="col-sm-6">
+							<input type="date" class="form-control" name="birthday">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">验证码</label>
 						<div class="col-sm-3">
 							<input type="text" class="form-control">
-
 						</div>
 						<div class="col-sm-2">
 							<img src="./image/captcha.jhtml" />
