@@ -23,4 +23,10 @@ public class UserServiceImpl implements UserService {
         user.setUid(UUID.randomUUID().toString().replaceAll("-",""));
         return userDao.registerUser(user);
     }
+
+    @Override
+    public User login(String username, String password) {
+        return userDao.login(username , password);
+    }
+
 }

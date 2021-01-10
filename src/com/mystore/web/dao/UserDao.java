@@ -3,6 +3,7 @@ package com.mystore.web.dao;
 import com.mystore.web.pojo.User;
 import com.mystore.web.util.C3p0Util;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
 
@@ -12,6 +13,11 @@ public class UserDao {
         qr = new QueryRunner(C3p0Util.getDataSource());
     }
 
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
     public int registerUser(User user){
         try {
             String sql = "insert into user values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -29,5 +35,22 @@ public class UserDao {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
+    public User login(String username, String password) {
+        try {
+            String sql = "select u.name from user u where u.username = ? and u.password = ? and u.is_delete != 1";
+            User user = qr.query(sql, new BeanHandler<>(User.class), username, password);
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
