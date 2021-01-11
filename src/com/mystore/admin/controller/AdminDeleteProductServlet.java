@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 删除商品
+ */
 @WebServlet("/adminDeleteProduct")
 public class AdminDeleteProductServlet extends HttpServlet {
     @Override

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * 更新商品信息
+ */
 @WebServlet("/adminProductUpdate")
 public class AdminProductUpdateServlet extends HttpServlet {
 

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 管理员主页，商品列表展示
+ */
 @WebServlet("/adminProductList")
 public class AdminProductListServlet extends HttpServlet {
     @Override

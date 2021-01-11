@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 获取商品分类
+ */
 @WebServlet("/adminCategoryList")
 public class AdminCategoryListServlet extends HttpServlet{
 

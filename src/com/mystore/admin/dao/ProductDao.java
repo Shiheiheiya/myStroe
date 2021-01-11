@@ -53,7 +53,7 @@ public class ProductDao {
     }
 
     public int saveProduct(Product product) {
-        String sql = "insert into product values (?,?,?,?,?,now(),?,?,?,?,?)";
+        String sql = "insert into product values (?,?,?,?,now(),?,?,?,?,?,?)";
         try {
             int rows = qr.update(sql,
                     product.getPid(),

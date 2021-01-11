@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 编辑（修改）商品数据
+ */
 @WebServlet("/adminProductEdit")
 public class AdminProductEditServlet extends HttpServlet{
 

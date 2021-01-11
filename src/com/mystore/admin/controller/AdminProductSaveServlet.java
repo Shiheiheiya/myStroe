@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * 添加用户
+ */
 @WebServlet("/adminProductSave")
 public class AdminProductSaveServlet extends HttpServlet{
 

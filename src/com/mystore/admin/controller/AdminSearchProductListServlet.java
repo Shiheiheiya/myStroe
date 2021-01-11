@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+/**
+ * 查询，模糊匹配
+ */
 @WebServlet("/adminSearchProductList")
 public class AdminSearchProductListServlet extends HttpServlet{
 
@@ -29,7 +32,6 @@ public class AdminSearchProductListServlet extends HttpServlet{
             ProductService productService = new ProductServiceImpl();
             CategoryService categoryService = new CategoryServiceImpl();
             BeanUtils.populate(condition , req.getParameterMap());
-            System.out.println("condition = " + condition);
             List<Product> productList = productService.getProductListByCondition(condition);
             req.setAttribute("condition",condition);
             req.setAttribute("productList",productList);
