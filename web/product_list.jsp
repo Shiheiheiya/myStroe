@@ -41,13 +41,13 @@ body {
 				<li><a href="#">首页</a></li>
 			</ol>
 		</div>
-		<c:forEach items="${productList}" var="p">
+		<c:forEach items="${page.productList}" var="p">
 			<div class="col-md-2" style="height: 240px">
-				<a href="productInfo?pid=${p.pid}"> <img src="${p.pimage}"
-												 width="170" height="170" style="display: inline-block;">
+				<a href="${pageContext.request.contextPath}/productInfo?pid=${p.pid}"> <img src="${p.pimage}"
+																							width="170" height="170" style="display: inline-block;">
 				</a>
 				<p>
-					<a href="productInfo?pid=${p.pid}" style='color: green'>${p.pname}</a>
+					<a href="${pageContext.request.contextPath}/productInfo?pid=${p.pid}" style='color: green'>${p.pname}</a>
 				</p>
 				<p>
 					<font color="#FF0000">商城价：&yen;${p.shopPrice}</font>
@@ -60,19 +60,32 @@ body {
 	<!--分页 -->
 	<div style="width: 380px; margin: 0 auto; margin-top: 50px;">
 		<ul class="pagination" style="text-align: center; margin-top: 10px;">
-			<li class="disabled"><a href="#" aria-label="Previous"><span
-					aria-hidden="true">&laquo;</span></a></li>
-			<li class="active"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">6</a></li>
-			<li><a href="#">7</a></li>
-			<li><a href="#">8</a></li>
-			<li><a href="#">9</a></li>
-			<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
+			<c:if test="${page.currentPage != 1}">
+				<li><a href="${pageContext.request.contextPath}/productList?currentPage=${page.currentPage - 1}" aria-label="Previous"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			</c:if>
+
+			<c:if test="${page.currentPage == 1}">
+				<li class="disabled"><a href="javascript:void(0)" aria-label="Previous"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			</c:if>
+
+			<c:forEach begin="1" end="${page.totalPages}" var="p">
+				<c:if test="${page.currentPage == p}">
+					<li class="active"><a href="${pageContext.request.contextPath}/productList?currentPage=${p}">${p}</a></li>
+				</c:if>
+				<c:if test="${page.currentPage != p}">
+					<li><a href="${pageContext.request.contextPath}/productList?currentPage=${p}">${p}</a></li>
+				</c:if>
+			</c:forEach>
+
+			<c:if test="${page.currentPage != page.totalPages}">
+				<li><a href="${pageContext.request.contextPath}/productList?currentPage=${page.currentPage + 1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+			</c:if>
+			<c:if test="${page.currentPage == page.totalPages}">
+				<li class="disabled"><a href="javascript:void(0)" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+			</c:if>
+
 		</ul>
 	</div>
 	<!-- 分页结束 -->
