@@ -24,7 +24,7 @@
 											<option value="${cc.cid}">${cc.cname}</option>
 										</c:forEach>
 									</select>
-		<input type="submit" value="搜索" onclick="callback()"/>
+		<input type="submit" value="搜索"/>
 
 		<table cellSpacing="1" cellPadding="0" width="100%" align="center"
 			bgColor="#f5fafe" border="0" style="margin-top: 10px">
@@ -94,8 +94,7 @@
 			</TBODY>
 		</table>
 	</form>
-	<script language="javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
-	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		function addProduct(){
 			window.location.href = "${pageContext.request.contextPath}/adminCategoryList";
@@ -107,11 +106,8 @@
 				window.location.href = "${pageContext.request.contextPath}/adminDeleteProduct?pid=" + pid;
 			}
 		}
-	</script>
-	<script>
-	//数据回显
-		function callback(){
-			$("#is_hot option[value = ${condition.isHot}]").prop("selected",true);
+		window.onload=function () {
+			$("#is_hot option[value = ${condition.isHot}]").prop("selected" , true);
 			$("#cid option[value = ${condition.cid}]").prop("selected",true);
 		}
 	</script>

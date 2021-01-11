@@ -31,6 +31,7 @@ public class AdminSearchProductListServlet extends HttpServlet{
             BeanUtils.populate(condition , req.getParameterMap());
             System.out.println("condition = " + condition);
             List<Product> productList = productService.getProductListByCondition(condition);
+            req.setAttribute("condition",condition);
             req.setAttribute("productList",productList);
             req.setAttribute("categoryList",categoryService.getCategoryList());
             req.getRequestDispatcher("/admin/product/list.jsp").forward(req,resp);
